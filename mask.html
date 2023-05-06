@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yazı Maskesi Uygulaması</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: url(arkaplan.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .mask {
+            background: url(goz.jpg);
+            background-size: cover;
+            background-position: center;
+            font-size: 300px;
+            font-family: impact;
+            letter-spacing: -12px;
+            padding-right: 10px;
+            border-radius: 20px;
+            /* Arka planı mask elementi içindeki metne kırp */
+            -webkit-background-clip: text;
+            /* Metni şeffaf yaparak sadece arka planın görünür olmasını sağla */
+            -webkit-text-fill-color: transparent;
+            box-shadow: 15px 15px 40px, -15px -15px 40px;
+            /* mask elementinin parlaklığını ayarla */
+            filter: brightness(0.9);
+        }
+
+        .text {
+            font-size: 100px;
+            font-style: italic;
+            font-weight: bold;
+            color: aqua;
+            margin-top: 5%;
+            text-shadow: 0 0 10px black;
+        }
+
+        .text::before {
+            content: "Kalbin Aynasıdır...";
+            position: absolute;
+            /* before pseudo-element'ini X ekseni üzerinde 180 derece döndür */
+            transform: rotateX(180deg);
+            /* Dönüşümün orijinini elementin altına ayarla */
+            transform-origin: bottom;
+            line-height: 0.85;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%, rgba(0, 0, 0, 0) 100%);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mask">GÖZLER</div>
+    <div class="text">Kalbin Aynasıdır...</div>
+</body>
+
+</html>
